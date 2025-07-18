@@ -102,3 +102,150 @@
     font-size: 12px;
   }
 }
+
+/* --- Tic Tac Toe Custom Styles --- */
+
+/* Color palette for light theme */
+:root {
+  --ttt-primary: #1976d2;
+  --ttt-secondary: #424242;
+  --ttt-accent: #fbc02d;
+  --ttt-bg: #fff;
+  --ttt-border: #e9ecef;
+  --ttt-board-bg: #f8f9fa;
+}
+
+.ttt-app-outer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--ttt-bg);
+}
+
+.ttt-app-centerbox {
+  background: var(--ttt-board-bg);
+  box-shadow: 0 4px 32px 0 rgba(33,33,33,0.08);
+  border-radius: 22px;
+  padding: 3.2rem 2.2rem 2.2rem 2.2rem;
+  min-width: 320px;
+  max-width: 96vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ttt-title {
+  font-size: 2.1rem;
+  color: var(--ttt-primary);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.ttt-status {
+  font-size: 1.12rem;
+  font-weight: 500;
+  color: var(--ttt-secondary);
+  margin-bottom: 1.25rem;
+  min-height: 28px;
+  transition: color 0.2s;
+}
+
+.ttt-board-container {
+  margin-bottom: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ttt-board-row {
+  display: flex;
+}
+
+.ttt-square {
+  width: 68px;
+  height: 68px;
+  margin: 4px;
+  background: #fff;
+  border: 2px solid var(--ttt-border);
+  border-radius: 14px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--ttt-primary);
+  cursor: pointer;
+  outline: none;
+  transition: background 0.19s, color 0.19s, box-shadow 0.19s;
+  box-shadow: 0 1px 2px rgba(33,33,33,0.04);
+  will-change: background, color;
+  user-select: none;
+}
+.ttt-square[disabled] {
+  cursor: not-allowed;
+  opacity: 0.64;
+}
+/* Winning highlight (inline style preferred, but adding fallback) */
+.ttt-square.won, .ttt-square:focus:active {
+  background: var(--ttt-accent);
+  color: var(--ttt-secondary);
+  border-color: var(--ttt-primary);
+}
+
+/* Controls & button */
+.ttt-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.ttt-btn {
+  background: var(--ttt-primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.76rem 1.7rem;
+  margin: 0 0.2rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(33,33,33,0.06);
+}
+
+.ttt-btn:hover {
+  background: var(--ttt-accent);
+  color: var(--ttt-secondary);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Footer */
+.ttt-footer {
+  font-size: 0.92rem;
+  color: #aaa;
+  margin-top: 2.2rem;
+  text-align: center;
+  width: 100%;
+}
+.ttt-credit {
+  letter-spacing: 0.01em;
+  color: var(--ttt-secondary);
+}
+
+/* Make the board responsive on small screens */
+@media (max-width: 480px) {
+  .ttt-app-centerbox {
+    padding: 1rem 0.2rem 1.4rem 0.2rem;
+    min-width: 0;
+  }
+  .ttt-square {
+    width: 42px;
+    height: 42px;
+    font-size: 1.22rem;
+    margin: 2px;
+  }
+}
